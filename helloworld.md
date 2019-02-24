@@ -4,5 +4,6 @@
  - Oranges
  - Pears
  - Bananas
-
+ - Miso paste
+ - Brocolli
 
