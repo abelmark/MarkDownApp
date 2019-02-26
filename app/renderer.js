@@ -64,13 +64,21 @@ newFileButton.addEventListener('click', () => {
   alert('you clicked new!');
 });
 
-saveMarkdownButton.addEventListener('click', () => {
+const saveMarkDown = () => {
   mainProcess.saveMarkDown(filePath, markdownView.value);
-});
+};
 
-saveHtmlButton.addEventListener('click', () => {
+saveMarkdownButton.addEventListener('click', saveMarkDown);
+
+ipcRenderer.on('save-markdown', saveMarkDown);
+
+const saveHtml = () => {
   mainProcess.saveHTML(htmlView.innerHTML);
-});
+}
+
+saveHtmlButton.addEventListener('click', saveHtml);
+
+ipcRenderer.on('save-html', saveHtml);
 
 ipcRenderer.on('file-opened', (event, name, content) => {
   filePath = name;
